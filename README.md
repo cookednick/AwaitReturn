@@ -1,5 +1,5 @@
 Sometimes, within a concurrent context, you need data that is only accessible via asynchronous code. For example, actors work by requiring `await` statements before their data can be accessed.
-There is no easy one-line way to do this in Swift as of Swift 5.9.2. _**AsyncReturn enters the chat.**_
+There is no easy one-line way to do this in Swift as of Swift 5.9.2. **AsyncReturn is one easy way to do this.**
 
 ## Usage
 
