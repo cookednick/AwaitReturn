@@ -1,3 +1,6 @@
+import Foundation
+
+
 /// Returns a value from an asynchronous context into a concurrent one.
 public func awaitReturn<V>(_ produceValue: @Sendable @escaping () async -> V) -> V {
     // Set up a reference to shared data.
