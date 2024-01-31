@@ -1,5 +1,5 @@
 /// Returns a value from an asynchronous context into a concurrent one.
-public func awaitReturn<V>(_ produceValue: @escaping () async -> V) -> V {
+public func awaitReturn<V>(_ produceValue: @Sendable @escaping () async -> V) -> V {
     let container = AsyncContainer<V>()
     
     Task {
