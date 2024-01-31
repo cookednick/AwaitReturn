@@ -4,16 +4,16 @@ public func awaitReturn<V>(_ produceValue: @escaping () async -> V) -> V {
     
     Task {
         container.result = await produceValue()
-        container.done = true
+        container.semaphore.signal()
     }
     
-    while !container.done { }
+    container.semaphore.wait()
     
     return container.result
 }
 
 
 fileprivate final class AsyncContainer<V> {
-    var done = false
+    let semaphore = DispatchSemaphore(value: 0)
     var result: V!
 }
